@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+
+/* New styles for the To-Do List */
+input {
+  margin-right: 10px;
+}

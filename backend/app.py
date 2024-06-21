@@ -6,15 +6,16 @@ CORS(app)
 
 tasks = []
 
-@app.route('/tasks', methods=['GET', 'POST'])
-def handle_tasks():
-    if request.method == 'POST':
-        task = request.json.get('task')
-        if task:
-            tasks.append(task)
-            return jsonify({'task': task}), 201
-        return jsonify({'error': 'Task content is required'}), 400
-    return jsonify(tasks)
+@app.route('/tasks', methods=['GET'])
+def get_tasks():
+    return jsonify({'tasks': tasks})
+
+@app.route('/tasks', methods=['POST'])
+def add_task():
+    new_task = request.json.get('task')
+    if new_task:
+        tasks.append(new_task)
+    return jsonify({'tasks': tasks})
 
 if __name__ == '__main__':
     app.run(debug=True)
