@@ -78,17 +78,35 @@ section h2 {
 }
 
 .feature {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 40px;
 }
 
+.feature img {
+  width: 50%; /* Adjust the size of the image */
+  height: auto;
+}
+
+.feature-text {
+  width: 50%;
+  background: #000; /* Black background for the text */
+  color: #fff; /* White text color */
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: left;
+}
+
 .feature h3 {
-  margin-top: 10px;
-  font-size: 1.5em;
+  margin-top: 0;
+  font-size: 2em; /* Increase font size */
+  font-family: 'Arial Black', sans-serif; /* Bold font */
 }
 
 .feature p {
-  margin-top: 5px;
-  font-size: 1em;
+  margin-top: 10px;
+  font-size: 1.2em; /* Increase font size */
 }
 
 .about {
@@ -116,25 +134,4 @@ footer {
 
 footer p {
   margin: 0;
-}
-
-/* Remove the side images and background */
-.side-image {
-  display: none;
-}
-
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-
-.content {
-  max-width: 1200px;
-  padding: 20px;
-}
-
-.side-container {
-  display: none;
 }
