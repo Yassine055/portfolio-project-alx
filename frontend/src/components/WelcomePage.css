@@ -1,31 +1,37 @@
 /* src/components/WelcomePage.css */
-.welcome-container {
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: black; /* Ensure background is black */
+}
+
+.welcome-page {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: linear-gradient(to right, #ffffff, #b3b3b3);
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  height: 100vh; /* Full viewport height */
+  color: white;
+  text-align: center; /* Center the text */
 }
 
-.welcome-content {
-  text-align: center;
-}
-
-h1 {
-  font-size: 3em;
-  margin-bottom: 20px;
+.welcome-text h1 {
+  font-size: 4em; /* Larger font size */
+  font-family: 'Arial Black', sans-serif; /* Professional font */
+  margin: 0 0 20px; /* Margin bottom to add space between text and button */
 }
 
 .start-button {
   padding: 10px 20px;
   font-size: 1.2em;
-  background-color: #007bff;
-  color: white;
+  background-color: #007bff; /* Button background color */
+  color: white; /* Button text color */
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .start-button:hover {
-  background-color: #0056b3;
+  background-color: #0056b3; /* Button color on hover */
 }

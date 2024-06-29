@@ -1,21 +1,19 @@
+// src/App.js
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import WelcomePage from './components/WelcomePage';
-import TaskList from './components/TaskList';
+import AppComponent from './components/AppComponent';
+import './App.css'; // Import the CSS file here
 
-const App = () => {
+function App() {
   return (
     <Router>
-      <div className="App">
-        <Routes>
-          <Route exact path="/" element={<WelcomePage />} />
-          <Route path="/app" element={<TaskList />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<WelcomePage />} />
+        <Route path="/app" element={<AppComponent />} />
+      </Routes>
     </Router>
   );
-};
+}
 
 export default App;
