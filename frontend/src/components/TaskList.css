@@ -1,0 +1,23 @@
+/* src/components/TaskList.css */
+
+.task-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.task-item .task-name {
+  flex-grow: 1;
+}
+
+.task-item .task-actions {
+  display: flex;
+  gap: 10px;
+}
