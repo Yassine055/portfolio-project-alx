@@ -3,62 +3,71 @@ body, html {
   height: 100%;
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: black; /* Set the entire page background to black */
-  color: white; /* Ensure text color is white */
+  background-color: #f4f4f4; /* Set the entire page background to light grey */
 }
 
-.App {
+.main-container {
+  display: flex;
+  height: 100vh;
+}
+
+.task-section {
+  flex: 3;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.sidebar {
+  flex: 1;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ensure the sidebar takes the full height */
+}
+
+.sidebar h1 {
+  font-size: 4em;
+  font-family: 'Arial Black', sans-serif;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1.text-center {
+  text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.input-group.mb-3.task-input {
+  max-width: 600px;
+  margin: 20px auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.list-group-item {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.list-group-item .task-content {
+  flex: 1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.list-group-item .task-content ul {
+  list-style-type: none;
+  padding-left: 20px;
 }
 
-/* New styles for the To-Do List */
-input {
-  margin-right: 10px;
+.list-group-item .task-content ul li {
+  font-size: 0.9em;
+  color: #666;
 }
 
-.container {
-  margin-top: 50px;
-}
-
-ul.list-group {
-  margin-top: 20px;
-}
-
-button {
+.btn {
   margin-left: 5px;
+}
+
+.list-group-item.completed {
+  text-decoration: line-through;
+  background-color: #d3d3d3;
 }

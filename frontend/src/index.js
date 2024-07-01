@@ -1,15 +1,16 @@
-// src/index.js
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import WelcomePage from './components/WelcomePage';
+import YourAppComponent from './components/AppComponent';
+import './index.css'; // Include a global CSS reset if needed
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <Router>
+    <Routes>
+      <Route path="/" element={<WelcomePage />} />
+      <Route path="/app" element={<YourAppComponent />} />
+    </Routes>
+  </Router>,
+  document.getElementById('welcome-root')
 );
-
-reportWebVitals();

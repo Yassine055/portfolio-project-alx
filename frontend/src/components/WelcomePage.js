@@ -12,12 +12,8 @@ const WelcomePage = () => {
 
   return (
     <div className="welcome-page">
-      <div className="welcome-text">
-        <h1>Welcome to<br />TaskEase</h1>
-      </div>
-      <div className="welcome-button">
-        <button onClick={handleStart} className="start-button">Start</button>
-      </div>
+      <h1>Welcome to<br />TaskEase</h1>
+      <button onClick={handleStart}>Start</button>
     </div>
   );
 };

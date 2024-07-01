@@ -3,6 +3,7 @@ import './TaskList.css';
 
 const TaskList = () => {
   const [tasks, setTasks] = useState([]);
+  const [newTask, setNewTask] = useState('');
 
   useEffect(() => {
     fetch('http://127.0.0.1:5000/tasks')
@@ -13,7 +14,7 @@ const TaskList = () => {
       .catch(error => console.error('Error fetching tasks:', error));
   }, []);
 
-  const addTask = (newTask) => {
+  const addTask = () => {
     fetch('http://127.0.0.1:5000/tasks', {
       method: 'POST',
       headers: {
@@ -24,7 +25,8 @@ const TaskList = () => {
       .then(response => response.json())
       .then(data => {
         if (data.task) {
-          setTasks([...tasks, data.task]);
+          setTasks([...tasks, data]);
+          setNewTask('');
         }
       })
       .catch(error => console.error('Error adding task:', error));
@@ -54,10 +56,53 @@ const TaskList = () => {
       .catch(error => console.error('Error updating task:', error));
   };
 
+  const toggleTaskCompletion = (id) => {
+    fetch(`http://127.0.0.1:5000/tasks/${id}/complete`, {
+      method: 'PUT',
+    })
+      .then(response => response.json())
+      .then(data => {
+        setTasks(tasks.map(task => (task.id === id ? data : task)));
+      })
+      .catch(error => console.error('Error toggling task completion:', error));
+  };
+
   return (
-    <div className="container mt-5">
-      <h1 className="text-center">To-Do List</h1>
-      {/* Ajoutez votre logique pour afficher et gérer les tâches ici */}
+    <div className="main-container">
+      <div className="task-section">
+        <h1 className="text-center">TaskEase</h1>
+        <div className="input-group mb-3 task-input">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Add a new task"
+            value={newTask}
+            onChange={(e) => setNewTask(e.target.value)}
+          />
+          <button className="btn btn-primary" onClick={addTask}>Add Task</button>
+        </div>
+        <ul className="list-group">
+          {tasks.map(task => (
+            <li key={task.id} className={`list-group-item ${task.completed ? 'completed' : ''}`}>
+              <div className="task-content">
+                {task.task}
+                <ul>
+                  {task.subtasks && task.subtasks.map((subtask, index) => (
+                    <li key={index}>{subtask}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <button className="btn btn-success" onClick={() => toggleTaskCompletion(task.id)}>Complete</button>
+                <button className="btn btn-danger" onClick={() => deleteTask(task.id)}>Delete</button>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="sidebar">
+        <h1>TaskEase</h1>
+      </div>
     </div>
   );
 };

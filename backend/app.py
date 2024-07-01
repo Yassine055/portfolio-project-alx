@@ -18,7 +18,7 @@ def get_tasks():
 def add_task():
     global current_id
     task_data = request.json
-    task = {'id': current_id, 'task': task_data['task']}
+    task = {'id': current_id, 'task': task_data['task'], 'completed': False, 'subtasks': []}  # Initialize with completed and subtasks
     tasks.append(task)
     current_id += 1
     logging.info(f"Added task: {task}")
@@ -37,9 +37,20 @@ def update_task(id):
     for task in tasks:
         if task['id'] == id:
             task['task'] = task_data['task']
-            logging.info(f"Updated task with id: {id} to {task['task']}")
+            task['completed'] = task_data.get('completed', task['completed'])  # Update completed status
+            task['subtasks'] = task_data.get('subtasks', task['subtasks'])  # Update subtasks
+            logging.info(f"Updated task with id: {id} to {task}")
             break
     return jsonify({'result': True})
+
+@app.route('/tasks/<int:id>/complete', methods=['PUT'])
+def complete_task(id):
+    for task in tasks:
+        if task['id'] == id:
+            task['completed'] = not task['completed']
+            logging.info(f"Completed status of task with id: {id} set to {task['completed']}")
+            return jsonify(task)
+    return jsonify({'error': 'Task not found'}), 404
 
 if __name__ == '__main__':
     app.run(debug=True)

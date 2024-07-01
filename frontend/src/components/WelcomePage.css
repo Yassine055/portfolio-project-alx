@@ -3,26 +3,33 @@ body, html {
   height: 100%;
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: black; /* Ensure background is black */
+  background-color: black; /* Set the entire page background to black */
+  color: white; /* Ensure text color is white */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#welcome-root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
 }
 
 .welcome-page {
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Center vertically */
-  align-items: center; /* Center horizontally */
-  height: 100vh; /* Full viewport height */
-  color: white;
-  text-align: center; /* Center the text */
+  text-align: center;
 }
 
-.welcome-text h1 {
-  font-size: 4em; /* Larger font size */
-  font-family: 'Arial Black', sans-serif; /* Professional font */
-  margin: 0 0 20px; /* Margin bottom to add space between text and button */
+.welcome-page h1 {
+  font-size: 3em;
+  font-family: 'Arial Black', sans-serif;
+  color: white; /* Ensure the text is white */
+  margin-bottom: 20px; /* Add some space below the text */
 }
 
-.start-button {
+.welcome-page button {
   padding: 10px 20px;
   font-size: 1.2em;
   background-color: #007bff; /* Button background color */
@@ -32,6 +39,6 @@ body, html {
   cursor: pointer;
 }
 
-.start-button:hover {
-  background-color: #0056b3; /* Button color on hover */
+.welcome-page button:hover {
+  background-color: #0056b3; /* Change background color on hover */
 }
