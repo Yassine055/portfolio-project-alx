@@ -1,64 +1,92 @@
-/* src/App.css */
 body, html {
   height: 100%;
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: black; /* Set the entire page background to black */
-  color: white; /* Ensure text color is white */
+  background-color: #f4f4f4;
 }
 
-.App {
+.main-container {
+  display: flex;
+  height: 100vh;
+}
+
+.welcome-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  height: 100vh;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.welcome-page h1 {
+  font-size: 4em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* New styles for the To-Do List */
-input {
-  margin-right: 10px;
-}
-
-.container {
-  margin-top: 50px;
-}
-
-ul.list-group {
+.welcome-page .btn {
   margin-top: 20px;
 }
 
-button {
+.task-section {
+  flex: 3;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.sidebar {
+  flex: 1;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.sidebar h1 {
+  font-size: 4em;
+  font-family: 'Arial Black', sans-serif;
+  text-align: center;
+}
+
+h1.text-center {
+  text-align: center;
+}
+
+.input-group.mb-3.task-input {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.list-group-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list-group-item .task-content {
+  flex: 1;
+}
+
+.list-group-item .task-content ul {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+.list-group-item .task-content ul li {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.btn {
   margin-left: 5px;
+}
+
+.list-group-item.completed {
+  text-decoration: line-through;
+  background-color: #d3d3d3;
 }

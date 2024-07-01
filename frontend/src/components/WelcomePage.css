@@ -1,44 +1,28 @@
 /* src/components/WelcomePage.css */
-body, html {
-  height: 100%;
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: black; /* Set the entire page background to black */
-  color: white; /* Ensure text color is white */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#welcome-root {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-}
-
 .welcome-page {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: black; /* Fond noir */
+  color: white; /* Texte blanc */
 }
 
 .welcome-page h1 {
   font-size: 3em;
-  font-family: 'Arial Black', sans-serif;
-  color: white; /* Ensure the text is white */
-  margin-bottom: 20px; /* Add some space below the text */
+  margin-bottom: 20px;
 }
 
 .welcome-page button {
+  background-color: blue; /* Bouton bleu */
+  color: white; /* Texte du bouton blanc */
   padding: 10px 20px;
-  font-size: 1.2em;
-  background-color: #007bff; /* Button background color */
-  color: white; /* Button text color */
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .welcome-page button:hover {
-  background-color: #0056b3; /* Change background color on hover */
+  background-color: darkblue; /* Changement de couleur au survol */
 }

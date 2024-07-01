@@ -6,14 +6,14 @@ import './WelcomePage.css';
 const WelcomePage = () => {
   const navigate = useNavigate();
 
-  const handleStart = () => {
-    navigate('/app');
+  const handleButtonClick = () => {
+    navigate('/app'); // Navigation vers l'application principale
   };
 
   return (
     <div className="welcome-page">
-      <h1>Welcome to<br />TaskEase</h1>
-      <button onClick={handleStart}>Start</button>
+      <h1>Welcome To TaskEase</h1>
+      <button onClick={handleButtonClick}>Get Started</button>
     </div>
   );
 };
