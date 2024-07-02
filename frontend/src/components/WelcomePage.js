@@ -12,7 +12,7 @@ const WelcomePage = () => {
 
   return (
     <div className="welcome-page">
-      <h1>Welcome To TaskEase</h1>
+      <h1>Welcome To<br /><span className="taskease">TaskEase</span></h1>
       <button onClick={handleButtonClick}>Get Started</button>
     </div>
   );
