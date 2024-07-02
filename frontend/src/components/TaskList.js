@@ -1,3 +1,4 @@
+// src/components/TaskList.js
 import React, { useState, useEffect } from 'react';
 import './TaskList.css';
 
@@ -68,41 +69,35 @@ const TaskList = () => {
   };
 
   return (
-    <div className="main-container">
-      <div className="task-section">
-        <h1 className="text-center">TaskEase</h1>
-        <div className="input-group mb-3 task-input">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Add a new task"
-            value={newTask}
-            onChange={(e) => setNewTask(e.target.value)}
-          />
-          <button className="btn btn-primary" onClick={addTask}>Add Task</button>
-        </div>
-        <ul className="list-group">
-          {tasks.map(task => (
-            <li key={task.id} className={`list-group-item ${task.completed ? 'completed' : ''}`}>
-              <div className="task-content">
-                {task.task}
-                <ul>
-                  {task.subtasks && task.subtasks.map((subtask, index) => (
-                    <li key={index}>{subtask}</li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <button className="btn btn-success" onClick={() => toggleTaskCompletion(task.id)}>Complete</button>
-                <button className="btn btn-danger" onClick={() => deleteTask(task.id)}>Delete</button>
-              </div>
-            </li>
-          ))}
-        </ul>
+    <div>
+      <div className="input-group mb-3 task-input">
+        <input
+          type="text"
+          className="form-control"
+          placeholder="Add a new task"
+          value={newTask}
+          onChange={(e) => setNewTask(e.target.value)}
+        />
+        <button className="btn btn-primary" onClick={addTask}>Add Task</button>
       </div>
-      <div className="sidebar">
-        <h1>TaskEase</h1>
-      </div>
+      <ul className="list-group">
+        {tasks.map(task => (
+          <li key={task.id} className={`list-group-item ${task.completed ? 'completed' : ''}`}>
+            <div className="task-content">
+              {task.task}
+              <ul>
+                {task.subtasks && task.subtasks.map((subtask, index) => (
+                  <li key={index}>{subtask}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <button className="btn btn-success" onClick={() => toggleTaskCompletion(task.id)}>Complete</button>
+              <button className="btn btn-danger" onClick={() => deleteTask(task.id)}>Delete</button>
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

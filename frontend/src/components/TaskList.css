@@ -3,33 +3,35 @@ body, html {
   height: 100%;
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4; /* Set the entire page background to light grey */
 }
 
 .main-container {
   display: flex;
   height: 100vh;
+  background: linear-gradient(to bottom, black, white); /* Dégradé du noir au blanc */
+  color: white; /* Texte blanc par défaut */
 }
 
 .task-section {
   flex: 3;
   padding: 20px;
-  background-color: #fff;
+  background-color: transparent;
+  color: black; /* Texte noir pour les tâches */
 }
 
 .sidebar {
   flex: 1;
-  background-color: #000;
-  color: #fff;
+  background-color: transparent;
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Ensure the sidebar takes the full height */
+  height: 100vh;
 }
 
 .sidebar h1 {
-  font-size: 4em;
+  font-size: 3em; /* Taille du texte ajustée */
   font-family: 'Arial Black', sans-serif;
   text-align: center;
 }
