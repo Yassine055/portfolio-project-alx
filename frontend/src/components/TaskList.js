@@ -5,6 +5,8 @@ import './TaskList.css';
 const TaskList = () => {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState('');
+  const [isEditing, setIsEditing] = useState(false);
+  const [currentTask, setCurrentTask] = useState({});
 
   useEffect(() => {
     fetch('http://127.0.0.1:5000/tasks')
@@ -53,6 +55,8 @@ const TaskList = () => {
     })
       .then(() => {
         setTasks(tasks.map(task => task.id === updatedTask.id ? updatedTask : task));
+        setIsEditing(false);
+        setCurrentTask({});
       })
       .catch(error => console.error('Error updating task:', error));
   };
@@ -68,6 +72,17 @@ const TaskList = () => {
       .catch(error => console.error('Error toggling task completion:', error));
   };
 
+  const startEditing = (task) => {
+    setIsEditing(true);
+    setCurrentTask(task);
+    setNewTask(task.task);
+  };
+
+  const handleEditChange = (e) => {
+    setNewTask(e.target.value);
+    setCurrentTask({ ...currentTask, task: e.target.value });
+  };
+
   return (
     <div>
       <div className="input-group mb-3 task-input">
@@ -76,9 +91,13 @@ const TaskList = () => {
           className="form-control"
           placeholder="Add a new task"
           value={newTask}
-          onChange={(e) => setNewTask(e.target.value)}
+          onChange={handleEditChange}
         />
-        <button className="btn btn-primary" onClick={addTask}>Add Task</button>
+        {isEditing ? (
+          <button className="btn btn-primary" onClick={() => updateTask(currentTask)}>Update Task</button>
+        ) : (
+          <button className="btn btn-primary" onClick={addTask}>Add Task</button>
+        )}
       </div>
       <ul className="list-group">
         {tasks.map(task => (
@@ -93,6 +112,7 @@ const TaskList = () => {
             </div>
             <div>
               <button className="btn btn-success" onClick={() => toggleTaskCompletion(task.id)}>Complete</button>
+              <button className="btn btn-edit" onClick={() => startEditing(task)}>Edit</button>
               <button className="btn btn-danger" onClick={() => deleteTask(task.id)}>Delete</button>
             </div>
           </li>
