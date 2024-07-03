@@ -1,38 +1,15 @@
-# Node.js
+# Node modules
 node_modules/
-npm-debug.log
-yarn-error.log
+frontend/node_modules/
 
-# macOS
-.DS_Store
-
-# Editor directories and files
-.vscode/
-.idea/
-*.suo
-*.ntvs*
+# Build directories
+frontend/build/
 
 # Logs
-logs
 *.log
-npm-debug.log*
 
-# Runtime data
-pids
-*.pid
-*.seed
-*.pid.lock
+# Environment files
+.env
 
-# Dependency directories
-# https://docs.npmjs.com/misc/faq#should-i-check-my-node_modules-folder-into-git
-# https://yarnpkg.com/lang/en/docs/cli/install/#toc-yarn-install-production
-# Don't check in node_modules or yarn.lock for production apps
-# You can uncomment line below if you want to check-in node_modules
-# dependencies in production deployment (if you don't like pain)
-# /node_modules
-
-# Testing
-coverage
-
-# Production
-build/
+# macOS files
+.DS_Store
