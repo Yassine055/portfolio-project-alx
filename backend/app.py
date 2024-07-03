@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+import os
 import logging
 
 app = Flask(__name__)
@@ -18,7 +19,7 @@ def get_tasks():
 def add_task():
     global current_id
     task_data = request.json
-    task = {'id': current_id, 'task': task_data['task'], 'completed': False, 'subtasks': []}  # Initialize with completed and subtasks
+    task = {'id': current_id, 'task': task_data['task'], 'completed': False, 'subtasks': []}
     tasks.append(task)
     current_id += 1
     logging.info(f"Added task: {task}")
@@ -37,8 +38,8 @@ def update_task(id):
     for task in tasks:
         if task['id'] == id:
             task['task'] = task_data['task']
-            task['completed'] = task_data.get('completed', task['completed'])  # Update completed status
-            task['subtasks'] = task_data.get('subtasks', task['subtasks'])  # Update subtasks
+            task['completed'] = task_data.get('completed', task['completed'])
+            task['subtasks'] = task_data.get('subtasks', task['subtasks'])
             logging.info(f"Updated task with id: {id} to {task}")
             break
     return jsonify({'result': True})
@@ -53,4 +54,5 @@ def complete_task(id):
     return jsonify({'error': 'Task not found'}), 404
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=True, host='0.0.0.0', port=port)
