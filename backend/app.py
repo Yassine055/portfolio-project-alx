@@ -2,9 +2,17 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import os
 import logging
+from dotenv import load_dotenv
+
+# Charger les variables d'environnement depuis le fichier .env
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
+
+# Utiliser les variables d'environnement
+app.secret_key = os.environ.get('SECRET_KEY')
+app.config['APP_KEY'] = os.environ.get('APP_KEY')
 
 logging.basicConfig(level=logging.INFO)
 
