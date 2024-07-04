@@ -1,0 +1,75 @@
+/* src/components/TaskList.css */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.main-container {
+  display: flex;
+  height: 100vh;
+  background: linear-gradient(to bottom, black, white); /* Dégradé du noir au blanc */
+  color: white; /* Texte blanc par défaut */
+}
+
+.task-section {
+  flex: 3;
+  padding: 20px;
+  background-color: transparent;
+  color: black; /* Texte noir pour les tâches */
+}
+
+.sidebar {
+  flex: 1;
+  background-color: transparent;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.sidebar h1 {
+  font-size: 3em; /* Taille du texte ajustée */
+  font-family: 'Arial Black', sans-serif;
+  text-align: center;
+}
+
+h1.text-center {
+  text-align: center;
+}
+
+.input-group.mb-3.task-input {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.list-group-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list-group-item .task-content {
+  flex: 1;
+}
+
+.list-group-item .task-content ul {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+.list-group-item .task-content ul li {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.btn {
+  margin-left: 5px;
+}
+
+.list-group-item.completed {
+  text-decoration: line-through;
+  background-color: #d3d3d3;
+}

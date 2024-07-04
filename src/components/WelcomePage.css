@@ -1,0 +1,36 @@
+/* src/components/WelcomePage.css */
+.welcome-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: black; /* Fond noir */
+  color: white; /* Texte blanc */
+}
+
+.welcome-page h1 {
+  font-size: 2.5em; /* Réduire la taille de la police */
+  margin-bottom: 20px;
+  color: #ffffff; /* Texte plus blanc */
+  text-align: center; /* Centrer le texte */
+}
+
+.welcome-page .taskease {
+  display: block;
+  font-size: 3.5em; /* Réduire la taille de la police */
+}
+
+.welcome-page button {
+  background-color: #0070c9; /* Bleu vif utilisé sur le site Apple */
+  color: white; /* Texte du bouton blanc */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.welcome-page button:hover {
+  background-color: #005bb5; /* Changement de couleur au survol */
+}
